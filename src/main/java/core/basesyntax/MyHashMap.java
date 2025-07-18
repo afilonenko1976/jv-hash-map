@@ -111,6 +111,10 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 
         Node<K,V> currentNode = table[countBucket];
 
+        if (currentNode == null) {
+            return null;
+        }
+
         if (hash == currentNode.hash
                 && (key == currentNode.key || key != null && key.equals(currentNode.key))) {
             return currentNode.value;
